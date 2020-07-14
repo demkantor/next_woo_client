@@ -1,0 +1,14 @@
+*.log
+npm-debug.log
+yarn-error.log
+.DS_Store
+build/
+node_modules/
+dist/
+.env
+.cache
+client-config.js
+.next
+wooConfig.js
+.idea/
+.now

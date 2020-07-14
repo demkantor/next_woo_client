@@ -1,0 +1,21 @@
+{
+  "name": "next-woo-client",
+  "version": "1.0.0",
+  "description": "woocommerce custom frontend built with Next.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "npm run build-fragment && next build",
+    "build-fragment": "node schemaQuery.js",
+    "start": "next start",
+	  "deploy": "npm run build && now"
+  },
+  "author": "demkantor",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
