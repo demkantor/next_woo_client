@@ -4,7 +4,7 @@ const Index = () => {
     return (
         <div>
             <Layout>
-                
+                <h1>Heloooooo</h1>
             </Layout>   
         </div>
     );

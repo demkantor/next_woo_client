@@ -5,17 +5,22 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next",
+    "dev": "nodemon server.js",
     "build": "npm run build-fragment && next build",
     "build-fragment": "node schemaQuery.js",
     "start": "next start",
-	  "deploy": "npm run build && now"
+    "deploy": "npm run build && now"
   },
   "author": "demkantor",
   "license": "ISC",
   "dependencies": {
+    "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "express": "^4.17.1",
     "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
