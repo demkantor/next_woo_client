@@ -1,15 +1,56 @@
 import Layout from '../components/Layout';
 import clientConfig from '../client-config';
-import fetch from 'isomorphic-unfetch';
 import axios from "axios";
-import WooApi from "../api/api";
+import gql from 'graphql-tag';
+import client from '../components/ApolloClient';
+
+import Product from '../components/Product';
+
+const PRODUCTS_QUERY = gql`query {
+    products(first: 20) {
+        nodes {
+            id
+            productId
+            averageRating
+            slug
+            description
+            name
+            image {
+                uri
+                srcSet
+                title
+                sourceUrl
+            }
+            link
+            ... on SimpleProduct {
+                price
+                id
+            }
+            ... on VariableProduct {
+                price
+                id
+            }
+        }
+    }
+}`
+
 
 const Index = ({ products }) => {
-    console.log(products)
+    console.log('client', products)
+
     return (
         <div>
             <Layout>
-                <h1>Heloooooo</h1>
+                <div className="product-container">
+                    {products.length
+                    ?
+                        products.map((product, i) => (
+                            <Product key={i} product={product} />
+                        ))
+                    :
+                        <h1>Loading...</h1>
+                    }
+                </div>
             </Layout>   
         </div>
     );
@@ -43,9 +84,14 @@ const Index = ({ products }) => {
 Index.getInitialProps = async () => {
     const productList = await axios.get(`${clientConfig.siteURL}/getProducts`);
     const data = await productList.data;
-    return {
-        products: data
-    };
+    return data;
 };
+
+// Index.getInitialProps = async () => {
+//     const productList = await client.query({ query: PRODUCTS_QUERY });
+//     console.log(productList.data)
+//     // const data = await productList.data.products.nodes
+//     // return data;
+// };
 
 export default Index;
