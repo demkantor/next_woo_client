@@ -10,7 +10,6 @@ const api = new WooCommerceRestApi({
     version: "wc/v3"
 });
 
-
 const port = 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -20,11 +19,28 @@ app.prepare()
     .then(() => {
         const server = express();
 
-        server.get( 'getProducts', (req, res) => {
-            api.get('products', function(err, data, res) {
-                response.json( JSON.parse(res));
-            });
+        // server.get( '/getProducts', (req, response) => {
+        //     console.log('here!')
+        //     api.get('products', function(err, data, res) {
+        //         response.json( JSON.parse(res));
+        //     }).catch(err => console.error(err));
+        // });
+        server.get( '/getProducts', async (req, res) => {
+            console.log('here!');
+            try {
+                // const products = await api.get('products', {per_page: 1});
+                const products = await api.get('products');
+                // console.log(products.data)
+                return res.status(200).json({ products: products.data });
+            } catch (error) {
+                console.error('error fetching products', error);
+            }
         });
+        // server.get("/products/:slug", (req, res) => {
+        //     const actualPage = "/product";
+        //     const queryParams = { slug: req.params.slug };
+        //     app.render(req, res, actualPage, queryParams);
+        // });
 
         server.get( '*', (req,res) => {
             return handle(req, res);
