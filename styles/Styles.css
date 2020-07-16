@@ -37,7 +37,28 @@ body {
 }
 
 .product-img {
-    width: 100%;
+    /* display: block;
+    margin: auto; */
+    max-width: 100%;
+    max-height: 50vh;
+}
+
+.btn-container {
+    margin: 2em;
+}
+
+
+.two-column {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1em;
+}
+
+.call-to-act {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 }
 
 /* Footer */
@@ -81,4 +102,8 @@ body {
 
 .social-list__link {
     padding: .5em;
+}
+
+.transition {
+    transition: var(--tran-secondary);
 }

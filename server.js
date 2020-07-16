@@ -26,7 +26,7 @@ app.prepare()
         //     }).catch(err => console.error(err));
         // });
         server.get( '/getProducts', async (req, res) => {
-            console.log('here!');
+            console.log('all products server!');
             try {
                 // const products = await api.get('products', {per_page: 1});
                 const products = await api.get('products');
@@ -41,6 +41,16 @@ app.prepare()
         //     const queryParams = { slug: req.params.slug };
         //     app.render(req, res, actualPage, queryParams);
         // });
+        server.get( '/getSingleProduct/:query', async (req, res) => {
+            console.log('single product server!', req.params.query);
+            try {;
+                const product = await api.get(`products?${req.params.query}`);
+                console.log(product.data)
+                return res.status(200).json({ product: product.data });
+            } catch (error) {
+                console.error('error fetching products', error);
+            }
+        });
 
         server.get( '*', (req,res) => {
             return handle(req, res);
