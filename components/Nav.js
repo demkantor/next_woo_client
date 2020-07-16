@@ -7,7 +7,11 @@ const Nav = () => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a className="navbar-brand" href="#">Next Woo</a>
+            <Link href="/">
+                <a className="navbar-brand">
+                    NEXT WOO
+                </a>
+            </Link>
             <button className="navbar-toggler transition" 
                     type="button" 
                     data-toggle="collapse" 

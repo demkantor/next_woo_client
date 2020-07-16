@@ -4,8 +4,8 @@ import { withRouter } from 'next/router';
 import Link from "next/link";
 import axios from "axios";
 import clientConfig from '../client-config';
-import WooApi from "../api/api";
-import AddToCartButton from "../components/AddToCartButton";
+import AddToCartBtn from "../components/Cart/AddToCartBtn";
+import QuantityBtn from "../components/Cart/QuantityBtn";
 
 const Product = withRouter( props => {
 	const { slug } = props.router.query;
@@ -25,49 +25,44 @@ const Product = withRouter( props => {
 	}, []);
 
 	return (
-
-			<Layout>
-				<div className="btn-container">
-					<Link href="/">
-						<a className="link">
-							<button type="button" className="btn btn-primary">Back</button>
-						</a>
-					</Link>
-				</div>  
-				{ item ? (
-					<div className="single-product">
-						<div className="product card bg-light mb-3 p-5">
-							<div className="card-header">{ item.name }</div>
-							<div className="card-body">
-								<h4 className="card-title">{ item.name }</h4>
-								<div className="two-column">
-									<img src={ item.images[0].src } alt={ item.name } className="product-img" />
-									<div className="call-to-act">
-										<h1>${item.price}</h1>
-										<h6 className="card-subtitle text-muted">{item.stock_status}!</h6>
-										<AddToCartButton />
+		<Layout>
+			<div className="btn-container">
+				<Link href="/">
+					<a className="link">
+						<button type="button" className="btn btn-primary">Back</button>
+					</a>
+				</Link>
+			</div>  
+			{ item ? (
+				<div className="single-product">
+					<div className="product card bg-light mb-3 p-5">
+						<div className="card-header">{ item.name }</div>
+						<div className="card-body">
+							<h4 className="card-title">{ item.name }</h4>
+							<div className="two-column">
+								<img src={ item.images[0].src } alt={ item.name } className="product-img" />
+								<div className="call-to-act">
+									<h1>${item.price}</h1>
+									<h6 className="card-subtitle text-muted">{item.stock_status}!</h6>
+									<div className="btn-container">
+										<QuantityBtn />
+										<AddToCartBtn product={ item } />
 									</div>
-									
 								</div>
-								<p
-									dangerouslySetInnerHTML={ {
-										__html: item.description,
-									} }
-									className="card-text"/>
-
-								{/* <AddToCartButton product={ item }/> */}
-
+								
 							</div>
+							<p
+								dangerouslySetInnerHTML={{ __html: item.description, }}
+								className="card-text" />
 						</div>
 					</div>
-					
-				) 
-				:
-					<h1>Loading...</h1> 
-				}
-			</Layout>
-
-	)
+				</div>
+			) 
+			:
+				<h1>Loading...</h1> 
+			}
+		</Layout>
+	);
 });
 
 
