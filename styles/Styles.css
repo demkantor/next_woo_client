@@ -10,6 +10,7 @@
     --submit: #3c47e9;
     --tran-primary: 300ms ease all;
     --tran-secondary: 600ms ease all;
+    --tran-teritary: 750ms ease-in-out all;
 }
   
 html {
@@ -28,6 +29,8 @@ body {
     justify-content: center;
 }
 
+
+/* Products */
 .product-container {
     margin: 2em;
     display: grid;
@@ -52,6 +55,7 @@ body {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 1em;
+    min-width: 20em;
 }
 
 .call-to-act {
@@ -60,6 +64,7 @@ body {
     text-align: center;
     justify-content: center;
 }
+
 
 /* Footer */
 .footer {
@@ -106,4 +111,21 @@ body {
 
 .transition {
     transition: var(--tran-secondary);
+}
+
+
+/* Cart */
+.total-container {
+    margin-right: 5em;
+    display: grid;
+    justify-content: right;
+}
+
+.highlight {
+    transition: var(--tran-teritary);
+}
+
+.highlight:hover, .highlight:focus {
+    transform: scale(1.3);
+    transition: var(--tran-teritary);
 }

@@ -25,7 +25,9 @@ const Nav = () => {
             <div className={`navbar-collapse transition ${toggleHamburger ? "collapse" : ""}`} id="navbarColor01">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        <Link href="/">
+                            <a className="nav-link" >Shop <span className="sr-only">(current)</span></a>
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <Link href="/categories">

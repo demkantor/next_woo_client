@@ -30,7 +30,16 @@ const Cart = withRouter( props => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>X</td>
+                        <td>
+                            <div
+                                className="highlight"
+                                data-toggle="tooltip" 
+                                data-placement="right" 
+                                title="Remove Item" 
+                                data-original-title="Tooltip on right">
+                                    <i className="fas fa-times-circle"></i>
+                            </div>
+                        </td>
                         <td>Product image</td>
                         <td>Product name</td>
                         <td>Price per unit</td>
@@ -38,7 +47,16 @@ const Cart = withRouter( props => {
                         <td>price per unit X quantity</td>
                     </tr>
                     <tr className="table-primary">
-                        <td>X</td>
+                    <td>
+                            <div
+                                className="highlight"
+                                data-toggle="tooltip" 
+                                data-placement="right" 
+                                title="Remove Item" 
+                                data-original-title="Tooltip on right">
+                                    <i className="fas fa-times-circle"></i>
+                            </div>
+                        </td>
                         <td>Product image</td>
                         <td>Product name</td>
                         <td>Price per unit</td>
@@ -47,12 +65,20 @@ const Cart = withRouter( props => {
                     </tr>
                 </tbody>
             </table>
-            <div className="card border-light mb-3" style={{"max-width": "20rem"}}>
-                <div className="card-header">Cart Totals</div>
-                <div className="card-body">
-                    <h4 className="card-title">Subtotal</h4>
-                    <h4 className="card-title">Total</h4>
-                    <button className="btn btn-primary">Proceed To Checkout</button>
+            <div className="total-container">
+                <div className="card border-light mb-3">
+                    <div className="card-header">Cart Totals</div>
+                    <div className="card-body">
+                        <div className="two-column">
+                            <h4 className="card-title">Subtotal</h4>
+                            <h4 className="card-title">$250</h4>
+                            <h4 className="card-title">Tax</h4>
+                            <h4 className="card-title">$0</h4>
+                            <h4 className="card-title">Total</h4>
+                            <h4 className="card-title">$250</h4>
+                        </div>
+                        <button className="btn btn-primary center">Proceed To Checkout</button>
+                    </div>
                 </div>
             </div>
 		</Layout>

@@ -6,12 +6,14 @@ import axios from "axios";
 import clientConfig from '../client-config';
 import AddToCartBtn from "../components/Cart/AddToCartBtn";
 import QuantityBtn from "../components/Cart/QuantityBtn";
+import Alert from "../components/Cart/Alert";
 
 const Product = withRouter( props => {
 	const { slug } = props.router.query;
 	const { product } = props;
 
 	const [item, setItem] = useState('');
+	const [qty, setQty] = useState(1);
 
 	useEffect(() => {
 		const getProduct = async () => {
@@ -24,6 +26,25 @@ const Product = withRouter( props => {
 		getProduct();
 	}, []);
 
+	const addItem = () => {
+		const ID = item.id;
+		let localList = getLocal();
+		if(localList.some(product => product.item.id === ID)) {
+			console.log('its here!', ID)
+			document.getElementById("modal").style.display = "block";
+		} else {
+			const newItem = { qty, item };
+			localList.push(newItem);
+			localStorage.setItem('woo-cart', JSON.stringify(localList));
+		};
+	};
+
+	const getLocal = () => {
+        return localStorage.getItem("woo-cart")
+        ? JSON.parse(localStorage.getItem("woo-cart"))
+        : [];
+	};
+
 	return (
 		<Layout>
 			<div className="btn-container">
@@ -32,21 +53,28 @@ const Product = withRouter( props => {
 						<button type="button" className="btn btn-primary">Back</button>
 					</a>
 				</Link>
-			</div>  
+			</div>
+			<Alert 
+				text={`${item.name} already in cart`}
+				secondary={"Change Quantity?"} />
 			{ item ? (
 				<div className="single-product">
 					<div className="product card bg-light mb-3 p-5">
 						<div className="card-header">{ item.name }</div>
 						<div className="card-body">
 							<h4 className="card-title">{ item.name }</h4>
+							
 							<div className="two-column">
 								<img src={ item.images[0].src } alt={ item.name } className="product-img" />
 								<div className="call-to-act">
 									<h1>${item.price}</h1>
 									<h6 className="card-subtitle text-muted">{item.stock_status}!</h6>
 									<div className="btn-container">
-										<QuantityBtn />
-										<AddToCartBtn product={ item } />
+										<QuantityBtn 
+											setQty={setQty} />
+										<AddToCartBtn 
+											product={ item } 
+											addItem={ addItem } />
 									</div>
 								</div>
 								
