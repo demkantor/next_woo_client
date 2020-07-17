@@ -29,6 +29,20 @@ body {
     justify-content: center;
 }
 
+.two-column {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1em;
+    min-width: 20em;
+}
+
+.two-column-offset {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-gap: 1em;
+    min-width: 15em;
+}
+
 
 /* Products */
 .product-container {
@@ -48,14 +62,6 @@ body {
 
 .btn-container {
     margin: 2em;
-}
-
-
-.two-column {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 1em;
-    min-width: 20em;
 }
 
 .call-to-act {
@@ -128,4 +134,15 @@ body {
 .highlight:hover, .highlight:focus {
     transform: scale(1.3);
     transition: var(--tran-teritary);
+}
+
+/* account */
+.account-wrapper {
+    margin: 5em 2em;
+}
+
+.sidebar {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
 }
