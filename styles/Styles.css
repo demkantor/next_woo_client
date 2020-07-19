@@ -150,3 +150,7 @@ body {
 .red {
     color: var(--danger);
 }
+
+.indent {
+    margin-left: 5em;
+}

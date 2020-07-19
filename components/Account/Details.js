@@ -1,74 +1,74 @@
-const Address = () => {
+const Profile = () => {
     return (
         <form>
             <fieldset>
                 <legend>Legend</legend>
                 <div className="two-column">
                     <div className="form-group">
-                        <label htmlFor="first-name">First Name</label>
-                        <input type="text" className="form-control" id="first-name" placeholder="first name" />
+                        <label htmlFor="first-name">First Name
+                            <span className="red">*</span>
+                        </label>
+                        <input type="text" className="form-control" id="first-name" placeholder="First Name" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="last-name">Last Name</label>
-                        <input type="text" className="form-control" id="last-name" placeholder="last name" />
+                        <label htmlFor="last-name">Last name
+                            <span className="red">*</span>
+                        </label>
+                        <input type="text" className="form-control" id="last-name" placeholder="Last Name" />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="display-name">Display Name</label>
-                    <input type="text" className="form-control" id="display-name" placeholder="display name" />
+                    <label htmlFor="display-name">Display Name
+                        <span className="red">*</span>
+                    </label>
+                    <input type="text" className="form-control" id="display-name" placeholder="Display Name" />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
+                    <label htmlFor="exampleInputEmail1">Email Address
+                        <span className="red">*</span>
+                    </label>
                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleSelect1">Example select</label>
-                    <select className="form-control" id="exampleSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <fieldset className="form-group">
-                    <legend>Checkboxes</legend>
-                    <div className="form-check">
-                        <label className="form-check-label">
-                        <input className="form-check-input" type="checkbox" value="" checked="" />
-                            Option one is this and that—be sure to include why it's great
-                        </label>
-                    </div>
-                    <div className="form-check disabled">
-                        <label className="form-check-label">
-                            <input className="form-check-input" type="checkbox" value="" disabled="" />
-                            Option two is disabled
-                        </label>
+
+                <fieldset>
+                    <legend>Password Change</legend>
+                    <div className="indent">
+                        <div className="form-group">
+                            <label htmlFor="current-password">Current Password</label>
+                            <input type="password" className="form-control" id="current-password" placeholder="(leave blank to leave unchanged)" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="new-password">New Password</label>
+                            <input type="password" className="form-control" id="new-password" placeholder="(leave blank to leave unchanged)" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="confirm-new-password">Confirm New Password</label>
+                            <input type="password" className="form-control" id="confirm-new-password" placeholder="(leave blank to leave unchanged)" />
+                        </div>
                     </div>
                 </fieldset>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <div className="input-group mb-3">
-                        <div className="custom-file">
-                            <input type="file" className="custom-file-input" id="inputGroupFile02" />
-                            <label className="custom-file-label" htmlFor="inputGroupFile02">Choose file</label>
-                        </div>
-                        <div className="input-group-append">
-                            <span className="input-group-text" id="">Upload</span>
+                
+                <fieldset>
+                    <div className="form-group">
+                    <small id="fileHelp" className="form-text text-muted">Choose a Personal Avatar (optional)</small>
+                        <div className="input-group mb-3">
+                            <div className="custom-file">
+                                <input type="file" className="custom-file-input" id="inputfield" />
+                                <label className="custom-file-label" htmlFor="inputfield">Choose Image</label>
+                            </div>
+                            <div className="input-group-append">
+                                <span className="input-group-text" id="">Upload</span>
+                            </div>
                         </div>
                     </div>
-                    <small id="fileHelp" className="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                </div>
+                </fieldset>
+
+                <button type="submit" className="btn btn-primary">Save Changes</button>
             </fieldset>
+
         </form>
     );
 };
 
-export default Address;
+export default Profile;
