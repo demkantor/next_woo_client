@@ -1,71 +1,86 @@
+import { useState } from 'react';
+
 const Address = () => {
+
+    const [region, setRegion] = useState('');
+    const [billing, setBilling] = useState(true);
+
     return (
         <form>
             <fieldset>
-                <legend>Legend</legend>
+                <legend>Enter Shipping Address</legend>
                 <div className="two-column">
                     <div className="form-group">
-                        <label htmlFor="first-name">First Name</label>
-                        <input type="text" className="form-control" id="first-name" placeholder="first name" />
+                        <label htmlFor="first-name">First Name
+                            <span className="red">*</span>
+                        </label>
+                        <input type="text" className="form-control" id="first-name" placeholder="" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="last-name">Last Name</label>
-                        <input type="text" className="form-control" id="last-name" placeholder="last name" />
+                        <label htmlFor="last-name">Last Name
+                            <span className="red">*</span>
+                        </label>
+                        <input type="text" className="form-control" id="last-name" placeholder="" />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="display-name">Display Name</label>
-                    <input type="text" className="form-control" id="display-name" placeholder="display name" />
+                    <label htmlFor="display-name">Company Name</label>
+                    <input type="text" className="form-control" id="display-name" placeholder="(optional)" />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
+                    <label htmlFor="region">State
+                        <span className="red">*</span>
+                    </label>
+                    <select id="region" className="custom-select" onChange={(event)=>{setRegion(event.target.value)}}>
+                        <option defaultValue value="">Select State</option>
+                        <option value="2">Minnesota</option>
+                        <option value="3">Canada</option>
+                        <option value="4">Mexico</option>
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="street-address">Street Address
+                        <span className="red">*</span>
+                    </label>
+                    <input type="text" className="form-control" id="street-address" placeholder="House number and street name" />
+                    <br />
+                    <input type="text" className="form-control" id="street-address" placeholder="Apartment, suite, unit, etc. (optional)" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="town-city">Town / City
+                        <span className="red">*</span>
+                    </label>
+                    <input type="text" className="form-control" id="town-city" placeholder="" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="zip">ZIP
+                        <span className="red">*</span>
+                    </label>
+                    <input type="number" min="1" className="form-control" id="zip" placeholder="" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="phone">Phone
+                        <span className="red">*</span>
+                    </label>
+                    <input type="text" className="form-control" id="phone" placeholder="ex: (555)555-5555" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleInputEmail1">Email Address
+                        <span className="red">*</span>
+                    </label>
                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleSelect1">Example select</label>
-                    <select className="form-control" id="exampleSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
                 </div>
                 <fieldset className="form-group">
                     <legend>Checkboxes</legend>
                     <div className="form-check">
                         <label className="form-check-label">
-                        <input className="form-check-input" type="checkbox" value="" checked="" />
-                            Option one is this and that—be sure to include why it's great
-                        </label>
-                    </div>
-                    <div className="form-check disabled">
-                        <label className="form-check-label">
-                            <input className="form-check-input" type="checkbox" value="" disabled="" />
-                            Option two is disabled
+                        <input className="form-check-input" type="checkbox" onChange={()=>{setBilling(!billing)}} value={billing} checked={billing} />
+                            Billing Address Is The Same As Shipping
                         </label>
                     </div>
                 </fieldset>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <div className="input-group mb-3">
-                        <div className="custom-file">
-                            <input type="file" className="custom-file-input" id="inputGroupFile02" />
-                            <label className="custom-file-label" htmlFor="inputGroupFile02">Choose file</label>
-                        </div>
-                        <div className="input-group-append">
-                            <span className="input-group-text" id="">Upload</span>
-                        </div>
-                    </div>
-                    <small id="fileHelp" className="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                </div>
+                <button type="submit" className="btn btn-primary">Save Address</button>
             </fieldset>
         </form>
     );
