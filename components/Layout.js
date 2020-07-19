@@ -4,6 +4,7 @@ import '../styles/Styles.css';
 import Footer from './Footer';
 
 const Layout = ( props ) => {
+
     return (
         <div>
 
@@ -11,8 +12,10 @@ const Layout = ( props ) => {
                 <title>Next-Woo</title>
                 <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css"/> 
             </Head>
-            <Header />
+                <Header />
+
                 { props.children }
+
             <Footer />
         </div>
     );

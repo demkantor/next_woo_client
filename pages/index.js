@@ -1,10 +1,10 @@
-import Layout from '../components/Layout';
 import clientConfig from '../client-config';
 import axios from "axios";
 import gql from 'graphql-tag';
 import client from '../components/ApolloClient';
 
 import Product from '../components/Product';
+import Shop from './shop';
 
 const PRODUCTS_QUERY = gql`query {
     products(first: 20) {
@@ -36,23 +36,18 @@ const PRODUCTS_QUERY = gql`query {
 
 
 const Index = ({ products }) => {
-    console.log('client', products)
+    console.log('client', products);
 
     return (
-        <div>
-            <Layout>
-                <div className="product-container">
-                    {products.length
-                    ?
-                        products.map((product, i) => (
-                            <Product key={i} product={product} />
-                        ))
-                    :
-                        <h1>Loading...</h1>
-                    }
-                </div>
-            </Layout>   
-        </div>
+        <>
+            {products.length
+            ?
+            <Shop 
+                products={products} />
+            :
+            <h1>Loading...</h1>
+            } 
+        </>
     );
 };
 

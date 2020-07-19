@@ -26,7 +26,7 @@ const Account = withRouter( props => {
         setTabs({
             [event.target.dataset.toggle]: true
         });
-    }
+    };
 
     return (
         <Layout>

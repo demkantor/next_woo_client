@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import Link from "next/link";
 import { withRouter } from 'next/router';
 
 
@@ -14,7 +15,9 @@ const Cart = withRouter( props => {
                 <hr className="my-4" />
                 <p>Proceed to Checkout to complete your purchase</p>
                 <p className="lead">
-                    <a className="btn btn-primary btn-lg" href="#" role="button">Continue To Checkout</a>
+                    <Link href="/checkout">
+                        <a className="btn btn-primary btn-lg" role="button">Continue To Checkout</a>
+                    </Link>
                 </p>
                 </div>
             <table className="table table-hover">
@@ -77,7 +80,9 @@ const Cart = withRouter( props => {
                             <h4 className="card-title">Total</h4>
                             <h4 className="card-title">$250</h4>
                         </div>
-                        <button className="btn btn-primary center">Proceed To Checkout</button>
+                        <Link href="/checkout">
+                            <button className="btn btn-primary center">Proceed To Checkout</button>
+                        </Link>
                     </div>
                 </div>
             </div>
