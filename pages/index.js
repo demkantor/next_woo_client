@@ -34,8 +34,10 @@ const PRODUCTS_QUERY = gql`query {
 }`
 
 
-const Index = ({ products }) => {
-    console.log('client', products);
+const Index = ( props ) => {
+    const { products, total } = props;
+    // console.log('client', products);
+    // console.log('client', total);
 
     return (
         <>

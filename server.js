@@ -15,6 +15,9 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+// middleware
+express().use(express.json());
+
 app.prepare()
     .then(() => {
         const server = express();
@@ -30,8 +33,8 @@ app.prepare()
             try {
                 // const products = await api.get('products', {per_page: 1});
                 const products = await api.get('products');
-                // console.log(products.data)
-                return res.status(200).json({ products: products.data });
+                console.log(products)
+                return res.status(200).json({ products: products.data, total: products.headers });
             } catch (error) {
                 console.error('error fetching products', error);
             }
