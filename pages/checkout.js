@@ -1,10 +1,18 @@
 import { withRouter } from 'next/router';
 import Layout from '../components/Layout';
+import Address from '../components/Checkout/Address';
+import CartContents from '../components/Checkout/CartContents';
 
 const Checkout = withRouter( props => {
     return (
         <Layout>
-            <h1>Checkout....</h1>
+            <div className="indent">
+                <legend className="jumbotron">Checkout</legend>
+                <div className="two-column">
+                    <Address />
+                    <CartContents />
+                </div>
+            </div>
         </Layout>
     );
 });

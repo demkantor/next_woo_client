@@ -9,7 +9,7 @@ const CartTable = () => {
 		const getProducts = async () => {
 			const items = getLocal();
             await setProducts(items);
-            await console.log(items);
+            // await console.log(items);
 		};
 
 		getProducts();
