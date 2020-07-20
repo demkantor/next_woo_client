@@ -3,7 +3,8 @@ import clientConfig from '../client-config';
 import axios from "axios";
 
 import Layout from '../components/Layout';
-import Product from '../components/Product';
+import Product from '../components/Shop/Product';
+import Pagination from '../components/Shop/Pagination';
 
 const Shop = withRouter( props => {
 
@@ -18,6 +19,7 @@ const Shop = withRouter( props => {
                 ))}
 
             </div>
+            <Pagination />
         </Layout>
     );
 });

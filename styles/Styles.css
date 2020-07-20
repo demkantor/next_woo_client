@@ -71,6 +71,10 @@ body {
     justify-content: center;
 }
 
+.pagination {
+    justify-content: end;
+    margin-right: 2em;
+}
 
 /* Footer */
 .footer {
