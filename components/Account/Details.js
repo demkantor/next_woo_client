@@ -1,4 +1,9 @@
+import { useState } from 'react';
+
 const Profile = () => {
+
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <form>
             <fieldset>
@@ -35,17 +40,45 @@ const Profile = () => {
                     <legend>Password Change</legend>
                     <div className="indent">
                         <div className="form-group">
-                            <label htmlFor="current-password">Current Password</label>
-                            <input type="password" className="form-control" id="current-password" placeholder="(leave blank to leave unchanged)" />
+                            <label htmlFor="current-password" className="label">Current Password</label>
+                            <input 
+                                type={showPassword ? 'text' : 'password'} 
+                                className="form-control" 
+                                id="current-password" 
+                                placeholder="(leave blank to leave unchanged)" />
+                            <span
+                                className="toggle-password"
+                                onMouseEnter={() => setShowPassword(true)}
+                                onMouseLeave={() => setShowPassword(false)}>
+                                {showPassword ? <i class="fas fa-eye-slash"></i> : <i class="fas fa-eye"></i>}
+                            </span>
                         </div>
                         <div className="form-group">
                             <label htmlFor="new-password">New Password</label>
-                            <input type="password" className="form-control" id="new-password" placeholder="(leave blank to leave unchanged)" />
-                        </div>
+                            <input 
+                                type={showPassword ? 'text' : 'password'} 
+                                className="form-control" 
+                                id="new-password" 
+                                placeholder="(leave blank to leave unchanged)" />
+                            <span
+                                className="toggle-password"
+                                onMouseEnter={() => setShowPassword(true)}
+                                onMouseLeave={() => setShowPassword(false)}>
+                                {showPassword ? <i class="fas fa-eye-slash"></i> : <i class="fas fa-eye"></i>}
+                            </span>                        </div>
                         <div className="form-group">
                             <label htmlFor="confirm-new-password">Confirm New Password</label>
-                            <input type="password" className="form-control" id="confirm-new-password" placeholder="(leave blank to leave unchanged)" />
-                        </div>
+                            <input 
+                                type={showPassword ? 'text' : 'password'} 
+                                className="form-control" 
+                                id="confirm-new-password" 
+                                placeholder="(leave blank to leave unchanged)" />
+                            <span
+                                className="toggle-password"
+                                onMouseEnter={() => setShowPassword(true)}
+                                onMouseLeave={() => setShowPassword(false)}>
+                                {showPassword ? <i class="fas fa-eye-slash"></i> : <i class="fas fa-eye"></i>}
+                            </span>                        </div>
                     </div>
                 </fieldset>
                 

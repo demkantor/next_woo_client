@@ -18,7 +18,6 @@ const CartTotal = () => {
 		sumProducts();
 	}, [setSubtotal, setTotal]);
 
-
     const getLocal = () => {
         return localStorage.getItem("woo-cart")
         ? JSON.parse(localStorage.getItem("woo-cart"))

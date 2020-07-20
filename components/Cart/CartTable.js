@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const CartTable = () => {
 
     const [products, setProducts] = useState('');
+    const [update, setUpdate] = useState(false);
     
     useEffect(() => {
 		const getProducts = async () => {
@@ -19,6 +20,10 @@ const CartTable = () => {
         return localStorage.getItem("woo-cart")
         ? JSON.parse(localStorage.getItem("woo-cart"))
         : [];
+    };
+
+    const qtyChange = (event) => {
+        console.log(event.target);
     };
     
     const removeItem = (id) => {
@@ -62,7 +67,9 @@ const CartTable = () => {
                         </td>
                         <td>{product.item.name}</td>
                         <td>${product.item.price}</td>
-                        <td>{product.qty}</td>
+                        <td>
+                            <input type="number" min="0" size="3" data-id={product.item.id} value={product.qty} onChange={qtyChange} />
+                        </td>
                         <td>${product.item.price * product.qty} </td>
                     </tr>
                 ))

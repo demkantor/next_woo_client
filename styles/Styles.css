@@ -162,6 +162,18 @@ body {
 }
 
 .indent {
-    margin-left: 5em;
+    margin: 0 5em;
+}
+
+.form-group {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    cursor: help;
+    font-size: 0.8rem;
+    right: 0.25rem;
+    bottom: 0.5rem;
 }
 
