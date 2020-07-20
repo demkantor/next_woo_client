@@ -33,10 +33,13 @@ const Account = withRouter( props => {
     return (
         <Layout>
             <div className="account-wrapper">
-                <h3>
-                    Welcome *user name*
-                    <small className="text-muted"> not you? <a>login here...</a></small>
-                </h3>
+                <div className="card text-white bg-dark mb-3">
+                    <div className="card-header">Next Woo</div>
+                    <div className="card-body">
+                        <h4 className="card-title">Our Promise To You</h4>
+                        <p className="card-text">Here at Next Woo you can always trust your information never to be shared or sold, we respect our customers and treat them as we would like to be treated. Afterall, we shop here too!</p>
+                    </div>
+                </div>
                 <div className="two-column-offset">
                     <Sidebar />
                     <div className="account-tabs">
