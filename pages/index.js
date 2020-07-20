@@ -3,7 +3,6 @@ import axios from "axios";
 import gql from 'graphql-tag';
 import client from '../components/ApolloClient';
 
-import Product from '../components/Product';
 import Shop from './shop';
 
 const PRODUCTS_QUERY = gql`query {

@@ -13,10 +13,10 @@ const Shop = withRouter( props => {
         <Layout>
             <div className="product-container">
                 
-                    {products.map((product, i) => (
-                        <Product key={i} product={product} />
-                    ))}
-                
+                {products.map((product, i) => (
+                    <Product key={i} product={product} />
+                ))}
+
             </div>
         </Layout>
     );

@@ -136,6 +136,16 @@ body {
     transition: var(--tran-teritary);
 }
 
+.sml-img-container {
+    max-width: 1em;
+    transition: var(--tran-primary);
+}
+
+.sml-img-container:hover > img {
+    transform: scale(3);
+    transition: var(--tran-primary);
+}
+
 /* account */
 .account-wrapper {
     margin: 5em 2em;
@@ -154,3 +164,4 @@ body {
 .indent {
     margin-left: 5em;
 }
+
