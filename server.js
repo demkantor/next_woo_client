@@ -28,6 +28,12 @@ app.prepare()
         //         response.json( JSON.parse(res));
         //     }).catch(err => console.error(err));
         // });
+
+        // server.get("/products/:slug", (req, res) => {
+        //     const actualPage = "/product";
+        //     const queryParams = { slug: req.params.slug };
+        //     app.render(req, res, actualPage, queryParams);
+        // });
         server.get( '/getProducts', async (req, res) => {
             console.log('all products server!');
             try {
@@ -39,11 +45,7 @@ app.prepare()
                 console.error('error fetching products', error);
             }
         });
-        // server.get("/products/:slug", (req, res) => {
-        //     const actualPage = "/product";
-        //     const queryParams = { slug: req.params.slug };
-        //     app.render(req, res, actualPage, queryParams);
-        // });
+
         server.get( '/getSingleProduct/:query', async (req, res) => {
             console.log('single product server!', req.params.query);
             try {;
@@ -52,6 +54,17 @@ app.prepare()
                 return res.status(200).json({ product: product.data });
             } catch (error) {
                 console.error('error fetching products', error);
+            }
+        });
+
+        server.get( '/getOrders', async (req, res) => {
+            console.log('all orders server!');
+            try {;
+                const orders = await api.get(`orders`);
+                // console.log(orders.data)
+                return res.status(200).json({ orders: orders.data });
+            } catch (error) {
+                console.error('error fetching orderss', error);
             }
         });
 

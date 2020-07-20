@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Layout from "../components/Layout";
 import { withRouter } from 'next/router';
+import axios from "axios";
+import clientConfig from '../client-config';
+
 import Sidebar from "../components/Account/Sidebar";
 import Address from '../components/Account/Address';
 import Profile from '../components/Account/Details';
@@ -8,6 +11,8 @@ import Landing from '../components/Account/Landing';
 import Orders from '../components/Account/Orders';
 
 const Account = withRouter( props => {
+
+    const { orders } = props;
 
     const [tabs, setTabs] = useState({
         home: true,
@@ -71,7 +76,8 @@ const Account = withRouter( props => {
                                 <Address />
                             </div>
                             <div className={`tab-pane fade ${tabs.orders ? "show active" : ""}`} id="orders">
-                                <Orders />
+                                <Orders 
+                                    orders={orders} />
                             </div>
                             <div className={`tab-pane fade ${tabs.login ? "show active" : ""}`} id="login">
                             <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>                            </div>
@@ -85,3 +91,9 @@ const Account = withRouter( props => {
 
 
 export default Account;
+
+Account.getInitialProps = async () => {
+    const orderList = await axios.get(`${clientConfig.siteURL}/getOrders`);
+    const data = await orderList.data;
+    return data;
+};

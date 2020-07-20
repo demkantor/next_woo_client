@@ -4,6 +4,7 @@ import { withRouter } from 'next/router';
 import Link from "next/link";
 import axios from "axios";
 import clientConfig from '../client-config';
+
 import AddToCartBtn from "../components/Cart/AddToCartBtn";
 import QuantityBtn from "../components/Cart/QuantityBtn";
 import Alert from "../components/Cart/Alert";
