@@ -1,11 +1,40 @@
+import { useEffect, useState } from "react";
+
 const Sidebar = () => {
+
+    const [products, setProducts] = useState('');
+    
+    useEffect(() => {
+		const getProducts = async () => {
+            const items = getLocal();
+            await setProducts(items);
+            await console.log(items);
+		};
+
+		getProducts();
+    }, []);
+    
+    const getLocal = () => {
+        return localStorage.getItem("woo-cart")
+        ? JSON.parse(localStorage.getItem("woo-cart"))
+        : [];
+    };
+
     return (
         <div className="sidebar">
-            <legend>In your Cart</legend>
-            <h1>iMAGES</h1>
-            <h1>of items</h1>
-            <h1>in cart</h1>
-            <h1>here</h1>
+            <legend>Your Cart</legend>
+            {products
+            ?
+                products.map(product => (
+                    <img 
+                        key={product.item.id} 
+                        className="product-img pad1" 
+                        src={product.item.images[0].src} 
+                        alt={product.item.name} />
+                ))
+            :
+                <div>Loading....</div>
+            }
         </div>
     )
 };

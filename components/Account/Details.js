@@ -50,7 +50,7 @@ const Profile = () => {
                                 className="toggle-password"
                                 onMouseEnter={() => setShowPassword(true)}
                                 onMouseLeave={() => setShowPassword(false)}>
-                                {showPassword ? <i class="fas fa-eye-slash"></i> : <i class="fas fa-eye"></i>}
+                                {showPassword ? <i className="fas fa-eye-slash"></i> : <i className="fas fa-eye"></i>}
                             </span>
                         </div>
                         <div className="form-group">
@@ -64,7 +64,7 @@ const Profile = () => {
                                 className="toggle-password"
                                 onMouseEnter={() => setShowPassword(true)}
                                 onMouseLeave={() => setShowPassword(false)}>
-                                {showPassword ? <i class="fas fa-eye-slash"></i> : <i class="fas fa-eye"></i>}
+                                {showPassword ? <i className="fas fa-eye-slash"></i> : <i className="fas fa-eye"></i>}
                             </span>                        </div>
                         <div className="form-group">
                             <label htmlFor="confirm-new-password">Confirm New Password</label>
@@ -77,7 +77,7 @@ const Profile = () => {
                                 className="toggle-password"
                                 onMouseEnter={() => setShowPassword(true)}
                                 onMouseLeave={() => setShowPassword(false)}>
-                                {showPassword ? <i class="fas fa-eye-slash"></i> : <i class="fas fa-eye"></i>}
+                                {showPassword ? <i className="fas fa-eye-slash"></i> : <i className="fas fa-eye"></i>}
                             </span>                        </div>
                     </div>
                 </fieldset>
