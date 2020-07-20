@@ -43,6 +43,14 @@ body {
     min-width: 15em;
 }
 
+.margin4 {
+    margin: 4em;
+}
+
+.edit-underline {
+    cursor: pointer;
+    font-size: 1.2em;
+}
 
 /* Products */
 .product-container {

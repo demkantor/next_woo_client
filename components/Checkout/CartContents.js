@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Method from "./Method";
 
 const CartContents = () => {
 
@@ -53,6 +54,9 @@ const CartContents = () => {
                     </tr>
                 </tbody>
             </table>
+            <div className="margin4">
+                <Method />
+            </div>
        </div>
     );
 };
