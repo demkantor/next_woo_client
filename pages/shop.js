@@ -8,7 +8,7 @@ import Pagination from '../components/Shop/Pagination';
 
 const Shop = withRouter( props => {
 
-    const { products } = props;
+    const { products, pageTotal } = props;
 
     return (
         <Layout>
@@ -19,7 +19,8 @@ const Shop = withRouter( props => {
                 ))}
 
             </div>
-            <Pagination />
+            <Pagination 
+                pageTotal={pageTotal} />
         </Layout>
     );
 });

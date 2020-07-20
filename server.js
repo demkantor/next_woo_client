@@ -33,7 +33,7 @@ app.prepare()
             try {
                 // const products = await api.get('products', {per_page: 1});
                 const products = await api.get('products');
-                console.log(products)
+                // console.log(products)
                 return res.status(200).json({ products: products.data, total: products.headers });
             } catch (error) {
                 console.error('error fetching products', error);
@@ -48,7 +48,7 @@ app.prepare()
             console.log('single product server!', req.params.query);
             try {;
                 const product = await api.get(`products?${req.params.query}`);
-                console.log(product.data)
+                // console.log(product.data)
                 return res.status(200).json({ product: product.data });
             } catch (error) {
                 console.error('error fetching products', error);

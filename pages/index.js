@@ -36,15 +36,17 @@ const PRODUCTS_QUERY = gql`query {
 
 const Index = ( props ) => {
     const { products, total } = props;
+    const pageTotal = Number(total["x-wp-totalpages"]);
     // console.log('client', products);
-    // console.log('client', total);
+    // console.log('client', total["x-wp-totalpages"]);
 
     return (
         <>
             {products.length
             ?
             <Shop 
-                products={products} />
+                products={products} 
+                pageTotal={pageTotal} />
             :
             <h1>Loading...</h1>
             } 
