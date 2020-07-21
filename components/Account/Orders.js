@@ -8,7 +8,6 @@ const Orders = ({ orders }) => {
     return (
         <div className="">
             <legend>Your Orders</legend>
-            <h1>iMAGES</h1>
             {orders.length < 1
             ?
                 <div className="card text-white bg-info mb-3">

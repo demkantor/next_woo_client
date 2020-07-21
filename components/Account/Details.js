@@ -7,7 +7,7 @@ const Profile = () => {
     return (
         <form>
             <fieldset>
-                <legend>Legend</legend>
+                <legend>About You</legend>
                 <div className="two-column">
                     <div className="form-group">
                         <label htmlFor="first-name">First Name

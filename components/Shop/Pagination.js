@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import Link from "next/link";
 
 const Pagination = ({ pageTotal }) => {
-    // console.log('pages', pageTotal);
+    console.log('pages', pageTotal);
 
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -15,8 +16,7 @@ const Pagination = ({ pageTotal }) => {
         } else {
             setCurrentPage(page);
         };
-        console.log(currentPage)
-        console.log([...Array(pageTotal)].map((page, i) => page))
+        console.log('current page', currentPage)
     };
 
     return (
@@ -27,7 +27,14 @@ const Pagination = ({ pageTotal }) => {
                 </li>
                 {[...Array(pageTotal)].map((page, i) => (
                     <li className={`page-item ${currentPage === i + 1} ? active : ""`} key={i} onClick={()=>newPage(i+1)}>
-                        <a className="page-link" href="#">{i + 1}</a>
+                        <Link
+                            href={`/shop`}
+                            as={{
+                                pathname: `/shop/`,
+                                query: { page: (i + 1) }
+                                }}>
+                                <a className="page-link">{i + 1}</a>
+                        </Link>
                     </li>
                 ))}
                 <li className="page-item">

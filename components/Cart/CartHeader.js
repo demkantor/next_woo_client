@@ -5,7 +5,7 @@ const CartHeader = () => {
     return (
         <div className="jumbotron">
             <h1 className="display-3">Your Cart</h1>
-            <p className="lead">Thank you for shopping with Next Woo! </p>
+            <p className="lead">Thank you for shopping with Next Woo Press! </p>
             <hr className="my-4" />
             <p>Proceed to Checkout to complete your purchase</p>
             <p className="lead">

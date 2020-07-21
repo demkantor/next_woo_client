@@ -8,7 +8,8 @@ import Pagination from '../components/Shop/Pagination';
 
 const Shop = withRouter( props => {
 
-    const { products, pageTotal } = props;
+    const { products, total } = props;
+    const pageTotal = Number(total["x-wp-totalpages"]);
 
     return (
         <Layout>
@@ -28,8 +29,18 @@ const Shop = withRouter( props => {
 export default Shop;
 
 
-Shop.getInitialProps = async () => {
-    const productList = await axios.get(`${clientConfig.siteURL}/getProducts`);
-    const data = await productList.data;
-    return data;
+Shop.getInitialProps = async (context) => {
+    const page = Number(context.asPath.slice(context.asPath.length - 1));
+    console.log('in shop', page)
+    if(isNaN(page) || page === undefined) {
+        const productList = await axios.get(`${clientConfig.siteURL}/getProducts/1`);
+        const data = await productList.data;
+        console.log(data)
+        return data;
+    } else {
+        const productList = await axios.get(`${clientConfig.siteURL}/getProducts/${page}`);
+        const data = await productList.data;
+        console.log(data)
+        return data;
+    };
 };

@@ -11,7 +11,7 @@ const Header = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <Link href="/">
                 <a className="navbar-brand">
-                    NEXT WOO
+                    NEXT WOO PRESS
                 </a>
             </Link>
             <button className="navbar-toggler transition" 

@@ -1,56 +1,53 @@
-import clientConfig from '../client-config';
-import axios from "axios";
-import gql from 'graphql-tag';
-import client from '../components/ApolloClient';
+import Link from "next/link";
+import Layout from '../components/Layout';
 
-import Shop from './shop';
-
-const PRODUCTS_QUERY = gql`query {
-    products(first: 20) {
-        nodes {
-            id
-            productId
-            averageRating
-            slug
-            description
-            name
-            image {
-                uri
-                srcSet
-                title
-                sourceUrl
-            }
-            link
-            ... on SimpleProduct {
-                price
-                id
-            }
-            ... on VariableProduct {
-                price
-                id
-            }
-        }
-    }
-}`
+// const PRODUCTS_QUERY = gql`query {
+//     products(first: 20) {
+//         nodes {
+//             id
+//             productId
+//             averageRating
+//             slug
+//             description
+//             name
+//             image {
+//                 uri
+//                 srcSet
+//                 title
+//                 sourceUrl
+//             }
+//             link
+//             ... on SimpleProduct {
+//                 price
+//                 id
+//             }
+//             ... on VariableProduct {
+//                 price
+//                 id
+//             }
+//         }
+//     }
+// }`
 
 
-const Index = ( props ) => {
-    const { products, total } = props;
-    const pageTotal = Number(total["x-wp-totalpages"]);
-    // console.log('client', products);
-    // console.log('client', total["x-wp-totalpages"]);
+const Index = ( ) => {
+
 
     return (
-        <>
-            {products.length
-            ?
-            <Shop 
-                products={products} 
-                pageTotal={pageTotal} />
-            :
-            <h1>Loading...</h1>
-            } 
-        </>
+        <Layout>
+            <div className="jumbotron">
+                <h1 className="display-3">Welcome To Next Woo Press</h1>
+                <p className="lead">Where shopping in fun, luxurious and secure! </p>
+                <hr className="my-4" />
+                <p>Proceed to the shop to browse our current selection</p>
+                <p>Be sure to come back often to see what's new!</p>
+                <p className="lead">
+                    <Link href="/shop">
+                        <a className="btn btn-primary btn-lg" role="button">Browse what's new</a>
+                    </Link>
+                </p>
+            </div>
+        </Layout>
     );
 };
 
@@ -79,11 +76,13 @@ const Index = ( props ) => {
 //     };
 // };
 
-Index.getInitialProps = async () => {
-    const productList = await axios.get(`${clientConfig.siteURL}/getProducts`);
-    const data = await productList.data;
-    return data;
-};
+// Index.getInitialProps = async (context) => {
+//     console.log('in index', context)
+//     const productList = await axios.get(`${clientConfig.siteURL}/getProducts/1`);
+//     const data = await productList.data;
+//     console.log(data)
+//     return data;
+// };
 
 // Index.getInitialProps = async () => {
 //     const productList = await client.query({ query: PRODUCTS_QUERY });

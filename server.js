@@ -34,11 +34,11 @@ app.prepare()
         //     const queryParams = { slug: req.params.slug };
         //     app.render(req, res, actualPage, queryParams);
         // });
-        server.get( '/getProducts', async (req, res) => {
-            console.log('all products server!');
+        server.get( '/getProducts/:page', async (req, res) => {
+            console.log('all products server!', req.params.page);
             try {
-                // const products = await api.get('products', {per_page: 1});
-                const products = await api.get('products');
+                const products = await api.get('products', {page: req.params.page});
+                // const products = await api.get('products');
                 // console.log(products)
                 return res.status(200).json({ products: products.data, total: products.headers });
             } catch (error) {
