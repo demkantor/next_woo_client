@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+// single product display
 const Product = ({ product }) => {
     return (
         <div className="card mb-3" key={product.id}>

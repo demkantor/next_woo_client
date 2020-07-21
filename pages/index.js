@@ -29,9 +29,8 @@ import Layout from '../components/Layout';
 //     }
 // }`
 
-
+// landing page and when visitors gor to "/"
 const Index = ( ) => {
-
 
     return (
         <Layout>
@@ -51,30 +50,6 @@ const Index = ( ) => {
     );
 };
 
-// Index.getInitialProps = async () => {
-//     const products = await axios.get(
-//         `${WooApi.url.wc}products?per_page=10&consumer_key=${
-//             WooApi.keys.consumerKey
-//             }&consumer_secret=${WooApi.keys.consumerSecret}`
-//     );
-
-//     return {
-//         products: products.data
-//     };
-// };
-
-// Index.getInitialProps = async () => {
-//     await console.log('getting props')
-//     try {
-//         const productList = await fetch(`${clientConfig.siteURL}/getProducts`)
-//         await console.log(productList.data)
-//         return {
-//             products: productList.data
-//         }
-//     } catch (error) {
-//         console.error('error fetching product list', error)
-//     };
-// };
 
 // Index.getInitialProps = async (context) => {
 //     console.log('in index', context)

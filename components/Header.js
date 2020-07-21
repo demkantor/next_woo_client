@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from "next/router";
 
+
+// main nav bar for full site
 const Header = () => {
     
     const [ toggleHamburger, setToggleHamburger ] = useState(true);

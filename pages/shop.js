@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import Product from '../components/Shop/Product';
 import Pagination from '../components/Shop/Pagination';
 
+// main shoping page
 const Shop = withRouter( props => {
 
     const { products, total } = props;

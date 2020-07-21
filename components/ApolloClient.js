@@ -8,6 +8,7 @@ import { ApolloLink } from "apollo-link";
 
 import clientConfig from '../client-config';
 
+// used to handle graphql
 const client = new ApolloClient( {
     link: createHttpLink({
         uri: clientConfig.graphqlURL,

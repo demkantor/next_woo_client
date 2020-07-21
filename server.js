@@ -22,18 +22,7 @@ app.prepare()
     .then(() => {
         const server = express();
 
-        // server.get( '/getProducts', (req, response) => {
-        //     console.log('here!')
-        //     api.get('products', function(err, data, res) {
-        //         response.json( JSON.parse(res));
-        //     }).catch(err => console.error(err));
-        // });
-
-        // server.get("/products/:slug", (req, res) => {
-        //     const actualPage = "/product";
-        //     const queryParams = { slug: req.params.slug };
-        //     app.render(req, res, actualPage, queryParams);
-        // });
+        // gets one page of all products
         server.get( '/getProducts/:page', async (req, res) => {
             console.log('all products server!', req.params.page);
             try {
@@ -46,6 +35,7 @@ app.prepare()
             }
         });
 
+        // gets a single product by user input
         server.get( '/getSingleProduct/:query', async (req, res) => {
             console.log('single product server!', req.params.query);
             try {;
@@ -57,6 +47,7 @@ app.prepare()
             }
         });
 
+        // get all users orders
         server.get( '/getOrders', async (req, res) => {
             console.log('all orders server!');
             try {;
@@ -83,3 +74,4 @@ app.prepare()
         console.error('error with server', err);
         process.exit(1);
     });
+    

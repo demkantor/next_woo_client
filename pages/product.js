@@ -9,6 +9,8 @@ import AddToCartBtn from "../components/Cart/AddToCartBtn";
 import QuantityBtn from "../components/Cart/QuantityBtn";
 import Alert from "../components/Cart/Alert";
 
+
+// single product page
 const Product = withRouter( props => {
 	const { slug } = props.router.query;
 	const { product } = props;
@@ -27,6 +29,7 @@ const Product = withRouter( props => {
 		getProduct();
 	}, []);
 
+	// checks if a product is in local storage and stores it
 	const addItem = () => {
 		const ID = item.id;
 		let localList = getLocal();
@@ -95,26 +98,13 @@ const Product = withRouter( props => {
 });
 
 
-
+// gets a single product by query provided by Link
 Product.getInitialProps = async ({ query }) => {
 	console.log('client', query.slug);
     const singleProduct = await axios.get(`${clientConfig.siteURL}/getSingleProduct/${query.slug}`);
     const data = await singleProduct.data;
     return data;
 };
-
-// Product.getInitialProps = async ({ query }) => {
-//     const url = `${WooApi.url.wc}products?slug=${query.slug}&consumer_key=${
-//       WooApi.keys.consumerKey
-//     }&consumer_secret=${WooApi.keys.consumerSecret}`;
-//     const response = await axios.get(url);
-//     console.log(response);
-//     if (response.data) {
-//       return { product: response.data[0] };
-//     } else {
-//       return { product: null };
-//     }
-//   };
 
 
 export default Product;

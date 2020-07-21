@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import Address from '../components/Checkout/Address';
 import CartContents from '../components/Checkout/CartContents';
 
+// checkout page
 const Checkout = withRouter( props => {
     return (
         <Layout>

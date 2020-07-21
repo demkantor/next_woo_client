@@ -5,6 +5,7 @@ import CartTotal from "../components/Cart/CartTotal";
 import CartTable from "../components/Cart/CartTable";
 
 
+// cart page to be displayed before user makes purchase
 const Cart = withRouter( props => {
 
     console.log('client side - cart', props);

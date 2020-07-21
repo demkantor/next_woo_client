@@ -1,3 +1,4 @@
+// user chooses payment method in checkout section
 const Method = () => {
     
     return (

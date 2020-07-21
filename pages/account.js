@@ -10,6 +10,8 @@ import Profile from '../components/Account/Details';
 import Landing from '../components/Account/Landing';
 import Orders from '../components/Account/Orders';
 
+
+// shows user account, here they addjust login, user details, and find past orders
 const Account = withRouter( props => {
 
     const { orders } = props;
@@ -89,8 +91,8 @@ const Account = withRouter( props => {
 	);
 });
 
-
 export default Account;
+
 
 Account.getInitialProps = async () => {
     const orderList = await axios.get(`${clientConfig.siteURL}/getOrders`);
